@@ -2,21 +2,22 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 28
+  compileSdk 33
   defaultConfig {
     applicationId "com.raywenderlich.android.creaturemon"
-    minSdkVersion 21
-    targetSdkVersion 28
+    minSdkVersion 23
+    targetSdkVersion 33
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
   buildTypes {
+    buildFeatures {
+      viewBinding true
+    }
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -28,10 +29,10 @@ dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-  implementation 'androidx.appcompat:appcompat:1.0.2'
-  implementation 'com.google.android.material:material:1.0.0'
-  implementation 'androidx.recyclerview:recyclerview:1.0.0'
-  implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+  implementation 'androidx.appcompat:appcompat:1.6.0'
+  implementation 'com.google.android.material:material:1.8.0'
+  implementation 'androidx.recyclerview:recyclerview:1.2.1'
+  implementation 'androidx.constraintlayout:constraintlayout:2.2.0-alpha06'
 
   // Room
   implementation "androidx.room:room-runtime:$room_version"
